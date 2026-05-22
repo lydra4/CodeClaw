@@ -1,11 +1,11 @@
 # Code Formatting and Linting
-black
-ruff
-pylint
+black==26.5.1
+ruff==0.15.13
+pylint==4.0.5
 
 # Pre-commit Hooks
-pre-commit
-mypy
+pre-commit==4.6.0
+mypy==2.1.0
 
 # Security
-bandit
+bandit==1.9.4

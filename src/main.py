@@ -17,7 +17,7 @@ def main(cfg: DictConfig):
     load_dotenv(find_dotenv())
 
     github_client = GitHubClient(cfg=cfg, logger=logger)
-    github_client._fetch_repositories(username=github_client.username)
+    github_client.export_profile_context()
 
 
 if __name__ == "__main__":

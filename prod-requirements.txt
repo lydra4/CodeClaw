@@ -7,3 +7,6 @@ rich==15.0.0
 
 # HTTP and Networking
 requests==2.34.2
+
+# Utilities and Progress Tracking
+tqdm==4.67.3

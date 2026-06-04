@@ -111,6 +111,10 @@ class GitHubClient:
                 "name": repo_name,
                 "description": repo.get("description", ""),
                 "url": repo.get("html_url"),
+                "size": repo.get("size", 0),
+                "stargazers_count": repo.get("stargazers_count", 0),
+                "created_at": repo.get("created_at", ""),
+                "updated_at": repo.get("updated_at", ""),
                 "languages": self._get_language_breakdown(
                     base_url=self.base_url,
                     username=self.username,

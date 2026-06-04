@@ -1,2 +1,2 @@
 base_url: "https://api.github.com"
-profile_export: "./data/01-raw/github_profile_context.json"
+profile_export: "./data/01-extracted/github_profile_context.json"

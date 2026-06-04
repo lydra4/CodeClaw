@@ -4,6 +4,7 @@ import hydra
 from dotenv import find_dotenv, load_dotenv
 from omegaconf import DictConfig
 
+from api.github_client import GitHubClient
 from utils.general_utils import setup_logging
 
 
@@ -14,7 +15,9 @@ def main(cfg: DictConfig):
     setup_logging()
 
     load_dotenv(find_dotenv())
-    # github_client = GitHubClient(cfg=cfg, logger=logger)
+
+    github_client = GitHubClient(cfg=cfg, logger=logger)
+    github_client._fetch_repositories(username=github_client.username)
 
 
 if __name__ == "__main__":

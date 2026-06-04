@@ -28,7 +28,9 @@ class GitHubClient:
     def _fetch_repositories(self, username: str) -> list[dict[str, Any]]:
         self.logger.info(f"Fetching repositories for user: {username}.")
 
-        url = f"{self.base_url}/users/{username}/repos?sort=updated&per_page=100"
+        url: str | None = (
+            f"{self.base_url}/users/{username}/repos?sort=updated&per_page=100"
+        )
 
         all_repos = []
 

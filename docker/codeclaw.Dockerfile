@@ -36,6 +36,8 @@ COPY --from=builder /opt/venv /opt/venv
 
 ENV PATH="/opt/venv/bin:/home/template/.local/bin:${PATH}"
 ENV PYTHONIOENCODING=utf8
+ENV GRADIO_SERVER_NAME="0.0.0.0"
+EXPOSE 7860
 ENV PYTHONPATH="${HOME_DIR}"
 
 USER ${NON_ROOT_USER}
@@ -45,4 +47,4 @@ COPY --chown=${NON_ROOT_USER}:${NON_ROOT_GID} ${REPO_DIR} .
 
 ENTRYPOINT ["python3"]
 
-CMD ["src/app.py"]
+CMD ["src/ui/app.py"]

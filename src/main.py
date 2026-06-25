@@ -4,7 +4,7 @@ import hydra
 from dotenv import find_dotenv, load_dotenv
 from omegaconf import DictConfig
 
-from api.github_client import GitHubClient
+from api.github_client import GitHubClient, GitHubClientError
 from utils.general_utils import setup_logging
 
 
@@ -16,8 +16,12 @@ def main(cfg: DictConfig):
 
     load_dotenv(find_dotenv())
 
-    github_client = GitHubClient(cfg=cfg, logger=logger)
-    github_client.export_profile_context()
+    try:
+        github_client = GitHubClient(cfg=cfg, logger=logger)
+        github_client.export_profile_context()
+    except GitHubClientError as error:
+        logger.error(f"{error}")
+        raise SystemExit(1) from error
 
 
 if __name__ == "__main__":

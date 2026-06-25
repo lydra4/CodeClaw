@@ -2,9 +2,9 @@ name: CI/CD
 
 on:
   push:
-    branches: [ "**" ]
+    branches: ["**"]
   pull_request:
-    branches: [ "**" ]
+    branches: ["**"]
   workflow_dispatch: {}
 
 env:
@@ -40,11 +40,8 @@ jobs:
       - name: Run black format Checks
         run: black --check src tests
 
-      - name: run isort import order check
-        run: isort --check-only --profile black src tests
-
       - name: Run Ruff
-        run: ruff check src tests
+        run: ruff check --extend-select I src tests
 
       - name: Run mypy
         run: mypy --config-file .github/workflows/mypy.ini src

@@ -1,6 +1,8 @@
 #!/bin/bash
 
-IMAGE_NAME="template" # Define the image name here so it's easy to change later
+set -euo pipefail
+
+IMAGE_NAME="codeclaw" # Define the image name here so it's easy to change later
 
 echo "Initiating teardown sequence for '$IMAGE_NAME'..."
 

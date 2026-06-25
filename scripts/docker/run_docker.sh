@@ -1,3 +1,9 @@
 #!/bin/bash
 
-docker run --rm -p 7860:7860 template
+set -euo pipefail
+
+docker run \
+    --rm \
+    --name codeclaw \
+    --env-file .env \
+    codeclaw:latest

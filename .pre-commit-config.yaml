@@ -1,17 +1,10 @@
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.5
+    rev: v0.15.13
     hooks:
       - id: ruff
         files: \.py$
-        args: [--fix]
-
-  - repo: https://github.com/pycqa/isort
-    rev: 7.0.0
-    hooks:
-      - id: isort
-        args: ["--profile", "black"]
-        files: \.py$
+        args: [--fix, --extend-select, I]
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.18.2
